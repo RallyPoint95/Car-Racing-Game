@@ -1,0 +1,38 @@
+#DRAWING SHAPES USING PYGAME
+import pygame
+
+pygame.init()
+
+
+white = (255,255,255)
+black = (0,0,0)
+
+red = (255,0,0)
+green = (0,255,0)
+blue = (0,0,255)
+
+gameDisplay = pygame.display.set_mode((800,600))
+gameDisplay.fill(black)
+
+pixAr = pygame.PixelArray(gameDisplay)
+pixAr[10][20] = green
+
+#drawing a line on a screen
+pygame.draw.line(gameDisplay, blue, (100,200), (300,400), 5)
+
+#drawing a rectangle on a screen
+pygame.draw.rect(gameDisplay, red, (400,400,50,25))
+
+#drawing a circle on a screen
+pygame.draw.circle(gameDisplay, white, (150,150), 75)
+
+#drawing a polygon on a screen
+pygame.draw.polygon(gameDisplay, green, ((78,46), (56,148), (320,256)))
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            quit()
+
+    pygame.display.update()
